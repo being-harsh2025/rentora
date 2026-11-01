@@ -40,9 +40,9 @@ export const LandingPage: React.FC = () => {
             Rentora • Smart Renting. Secure Agreements.
           </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-[1.1]">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-[1.15]">
             Trustless Rental Agreements with{' '}
-            <span className="bg-gradient-to-r from-brand-400 via-emerald-300 to-teal-400 bg-clip-text text-transparent">
+            <span className="text-emerald-400 bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent inline-block">
               Smart Contract Escrow
             </span>
           </h1>
