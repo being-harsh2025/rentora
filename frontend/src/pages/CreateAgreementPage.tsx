@@ -309,7 +309,7 @@ export const CreateAgreementPage: React.FC = () => {
             3. Financial Terms & Schedule
           </h3>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             <div>
               <label className="block text-xs font-medium text-slate-300 mb-1.5">Monthly Rent (ETH)</label>
               <input
@@ -399,18 +399,18 @@ export const CreateAgreementPage: React.FC = () => {
         </div>
 
         {/* Submit Button */}
-        <div className="flex items-center justify-end gap-4">
+        <div className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-end gap-3 pt-2">
           <button
             type="button"
             onClick={() => navigate('/landlord')}
-            className="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 text-xs font-semibold border border-slate-800 transition-colors"
+            className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 text-xs font-semibold border border-slate-800 transition-colors text-center"
           >
             Cancel
           </button>
 
           <button
             type="submit"
-            className="px-6 py-3 rounded-xl bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-500 hover:to-emerald-500 text-white text-xs font-semibold shadow-lg shadow-brand-500/20 flex items-center gap-2 transition-all hover:scale-105"
+            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-500 hover:to-emerald-500 text-white text-xs font-semibold shadow-lg shadow-brand-500/20 flex items-center justify-center gap-2 transition-all hover:scale-105"
           >
             <ShieldCheck className="w-4 h-4" />
             Publish Agreement to Blockchain

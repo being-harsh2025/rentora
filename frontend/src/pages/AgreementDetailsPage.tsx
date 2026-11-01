@@ -368,7 +368,7 @@ export const AgreementDetailsPage: React.FC = () => {
       <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <div className="flex items-center gap-2 mb-2">
+            <div className="flex flex-wrap items-center gap-2 mb-2">
               <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider border ${statusStyle.bg} ${statusStyle.text} ${statusStyle.border}`}>
                 Status: {agreement.status}
               </span>
@@ -454,7 +454,7 @@ export const AgreementDetailsPage: React.FC = () => {
       </div>
 
       {/* Navigation Tabs */}
-      <div className="flex items-center gap-2 border-b border-slate-800 overflow-x-auto pb-2">
+      <div className="flex items-center gap-2 border-b border-slate-800 overflow-x-auto pb-2 scrollbar-none">
         {[
           { key: 'overview', label: 'Overview & Terms', icon: FileCheck2 },
           { key: 'deposit', label: 'Deposit Escrow', icon: Lock },
@@ -493,7 +493,7 @@ export const AgreementDetailsPage: React.FC = () => {
               </div>
               <button
                 onClick={handleAcceptAgreement}
-                className="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-semibold shadow-lg shadow-brand-500/20 inline-flex items-center gap-1.5 whitespace-nowrap"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-semibold shadow-lg shadow-brand-500/20 inline-flex items-center justify-center gap-1.5 whitespace-nowrap"
               >
                 <CheckCircle2 className="w-4 h-4" />
                 Sign & Accept Agreement
@@ -511,7 +511,7 @@ export const AgreementDetailsPage: React.FC = () => {
               </div>
               <button
                 onClick={handlePayDeposit}
-                className="px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-semibold shadow-lg shadow-cyan-500/20 inline-flex items-center gap-1.5 whitespace-nowrap"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-semibold shadow-lg shadow-cyan-500/20 inline-flex items-center justify-center gap-1.5 whitespace-nowrap"
               >
                 <Lock className="w-4 h-4" />
                 Deposit {agreement.deposit_amount_eth} ETH to Escrow
@@ -670,16 +670,16 @@ export const AgreementDetailsPage: React.FC = () => {
                 </p>
 
                 {isTenant && (
-                  <div className="flex items-center gap-3 pt-2">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                     <button
                       onClick={handleAcceptDeduction}
-                      className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold"
+                      className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold text-center"
                     >
                       Accept Deduction ({deductionProposal.amount} ETH to Landlord, Remainder Refunded)
                     </button>
                     <button
                       onClick={handleDisputeDeduction}
-                      className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-semibold"
+                      className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white text-xs font-semibold text-center"
                     >
                       Dispute Deduction
                     </button>
@@ -706,18 +706,18 @@ export const AgreementDetailsPage: React.FC = () => {
                   <p className="text-xs text-slate-400">
                     Both parties can agree upon a compromise deduction. Once signed on-chain, the contract immediately disperses the funds.
                   </p>
-                  <div className="flex items-center gap-3">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                     <input
                       type="number"
                       step="0.01"
                       value={agreedCompromise}
                       onChange={(e) => setAgreedCompromise(e.target.value)}
                       placeholder="Agreed Deduction (ETH)"
-                      className="px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white w-48"
+                      className="w-full sm:w-48 px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white"
                     />
                     <button
                       onClick={handleSettleDispute}
-                      className="px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-semibold"
+                      className="w-full sm:w-auto px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-semibold text-center"
                     >
                       Execute Mutual Settlement
                     </button>
@@ -762,7 +762,7 @@ export const AgreementDetailsPage: React.FC = () => {
               {isTenant && agreement.status === 'Active' && (
                 <button
                   onClick={handlePayRent}
-                  className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-500 hover:to-emerald-500 text-white text-xs font-semibold shadow-lg shadow-brand-500/20 inline-flex items-center gap-2"
+                  className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-500 hover:to-emerald-500 text-white text-xs font-semibold shadow-lg shadow-brand-500/20 inline-flex items-center justify-center gap-2"
                 >
                   <CreditCard className="w-4 h-4" />
                   Pay Rent ({agreement.rent_amount_eth} ETH)
@@ -777,8 +777,8 @@ export const AgreementDetailsPage: React.FC = () => {
               {payments.length === 0 ? (
                 <p className="text-xs text-slate-500 py-6 text-center">No rent payments recorded yet for this agreement.</p>
               ) : (
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left text-xs">
+                <div className="overflow-x-auto pb-2 scrollbar-none">
+                  <table className="w-full min-w-[520px] text-left text-xs">
                     <thead>
                       <tr className="border-b border-slate-800 text-slate-500 text-[10px] uppercase">
                         <th className="py-2.5 px-3">Period #</th>
@@ -842,8 +842,8 @@ export const AgreementDetailsPage: React.FC = () => {
           {transactions.length === 0 ? (
             <p className="text-xs text-slate-500 py-6 text-center">No transactions recorded for this agreement.</p>
           ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs">
+            <div className="overflow-x-auto pb-2 scrollbar-none">
+              <table className="w-full min-w-[520px] text-left text-xs">
                 <thead>
                   <tr className="border-b border-slate-800 text-slate-500 text-[10px] uppercase">
                     <th className="py-2.5 px-3">Transaction Event</th>

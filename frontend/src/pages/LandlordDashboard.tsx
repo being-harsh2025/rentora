@@ -99,10 +99,10 @@ export const LandlordDashboard: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 w-full sm:w-auto">
           <Link
             to="/agreements/new"
-            className="px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-semibold shadow-lg shadow-brand-500/20 inline-flex items-center gap-2 transition-all hover:scale-105"
+            className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-semibold shadow-lg shadow-brand-500/20 inline-flex items-center justify-center gap-2 transition-all hover:scale-105"
           >
             <FilePlus2 className="w-4 h-4" />
             Create Rental Agreement
@@ -208,75 +208,139 @@ export const LandlordDashboard: React.FC = () => {
             </Link>
           </div>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs">
-              <thead>
-                <tr className="border-b border-slate-800 text-slate-400 uppercase tracking-wider text-[10px]">
-                  <th className="py-3 px-4">Property / Lease</th>
-                  <th className="py-3 px-4">Tenant Wallet</th>
-                  <th className="py-3 px-4">Rent / Period</th>
-                  <th className="py-3 px-4">Deposit Escrow</th>
-                  <th className="py-3 px-4">Contract Status</th>
-                  <th className="py-3 px-4">Periods Paid</th>
-                  <th className="py-3 px-4 text-right">Actions</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-800/60 text-slate-300">
-                {filteredAgreements.map((ag) => {
-                  const statusStyle = getStatusColor(ag.status);
-                  const depositStyle = getStatusColor(ag.deposit_status);
-                  return (
-                    <tr key={ag.id} className="hover:bg-slate-800/30 transition-colors">
-                      <td className="py-4 px-4">
-                        <Link to={`/agreements/${ag.id}`} className="font-semibold text-white hover:text-brand-400 block">
-                          {ag.property_title}
-                        </Link>
-                        <span className="text-[11px] text-slate-500 line-clamp-1">{ag.property_address}</span>
-                      </td>
+          <>
+            {/* Desktop / Tablet Table */}
+            <div className="hidden md:block overflow-x-auto">
+              <table className="w-full text-left text-xs">
+                <thead>
+                  <tr className="border-b border-slate-800 text-slate-400 uppercase tracking-wider text-[10px]">
+                    <th className="py-3 px-4">Property / Lease</th>
+                    <th className="py-3 px-4">Tenant Wallet</th>
+                    <th className="py-3 px-4">Rent / Period</th>
+                    <th className="py-3 px-4">Deposit Escrow</th>
+                    <th className="py-3 px-4">Contract Status</th>
+                    <th className="py-3 px-4">Periods Paid</th>
+                    <th className="py-3 px-4 text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                  {filteredAgreements.map((ag) => {
+                    const statusStyle = getStatusColor(ag.status);
+                    const depositStyle = getStatusColor(ag.deposit_status);
+                    return (
+                      <tr key={ag.id} className="hover:bg-slate-800/30 transition-colors">
+                        <td className="py-4 px-4">
+                          <Link to={`/agreements/${ag.id}`} className="font-semibold text-white hover:text-brand-400 block">
+                            {ag.property_title}
+                          </Link>
+                          <span className="text-[11px] text-slate-500 line-clamp-1">{ag.property_address}</span>
+                        </td>
 
-                      <td className="py-4 px-4 font-mono text-[11px]">
-                        <span className="text-slate-300">{shortenAddress(ag.tenant_wallet, 4)}</span>
-                      </td>
+                        <td className="py-4 px-4 font-mono text-[11px]">
+                          <span className="text-slate-300">{shortenAddress(ag.tenant_wallet, 4)}</span>
+                        </td>
 
-                      <td className="py-4 px-4 font-mono font-medium text-white">
-                        {ag.rent_amount_eth} <span className="text-slate-500 font-sans text-[10px]">ETH</span>
-                      </td>
+                        <td className="py-4 px-4 font-mono font-medium text-white">
+                          {ag.rent_amount_eth} <span className="text-slate-500 font-sans text-[10px]">ETH</span>
+                        </td>
 
-                      <td className="py-4 px-4 font-mono">
-                        <div>
-                          <span className="font-medium text-white">{ag.deposit_amount_eth} ETH</span>
-                          <span className={`block text-[10px] px-1.5 py-0.5 rounded border w-fit mt-0.5 ${depositStyle.bg} ${depositStyle.text} ${depositStyle.border}`}>
-                            {ag.deposit_status}
+                        <td className="py-4 px-4 font-mono">
+                          <div>
+                            <span className="font-medium text-white">{ag.deposit_amount_eth} ETH</span>
+                            <span className={`block text-[10px] px-1.5 py-0.5 rounded border w-fit mt-0.5 ${depositStyle.bg} ${depositStyle.text} ${depositStyle.border}`}>
+                              {ag.deposit_status}
+                            </span>
+                          </div>
+                        </td>
+
+                        <td className="py-4 px-4">
+                          <span className={`px-2.5 py-1 rounded-full text-[11px] font-semibold border ${statusStyle.bg} ${statusStyle.text} ${statusStyle.border}`}>
+                            {ag.status}
                           </span>
-                        </div>
-                      </td>
+                        </td>
 
-                      <td className="py-4 px-4">
-                        <span className={`px-2.5 py-1 rounded-full text-[11px] font-semibold border ${statusStyle.bg} ${statusStyle.text} ${statusStyle.border}`}>
-                          {ag.status}
-                        </span>
-                      </td>
+                        <td className="py-4 px-4 font-mono">
+                          <span className="text-brand-400 font-semibold">{ag.rent_paid_count}</span>
+                          <span className="text-slate-500 text-[10px]"> cycles</span>
+                        </td>
 
-                      <td className="py-4 px-4 font-mono">
-                        <span className="text-brand-400 font-semibold">{ag.rent_paid_count}</span>
-                        <span className="text-slate-500 text-[10px]"> cycles</span>
-                      </td>
+                        <td className="py-4 px-4 text-right">
+                          <Link
+                            to={`/agreements/${ag.id}`}
+                            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium transition-colors"
+                          >
+                            View Details
+                            <ChevronRight className="w-3.5 h-3.5" />
+                          </Link>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
 
-                      <td className="py-4 px-4 text-right">
+            {/* Mobile Card List */}
+            <div className="md:hidden space-y-3">
+              {filteredAgreements.map((ag) => {
+                const statusStyle = getStatusColor(ag.status);
+                const depositStyle = getStatusColor(ag.deposit_status);
+                return (
+                  <div
+                    key={ag.id}
+                    className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 shadow-sm"
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <div>
                         <Link
                           to={`/agreements/${ag.id}`}
-                          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium transition-colors"
+                          className="font-bold text-white hover:text-brand-400 text-sm block"
                         >
-                          View Details
-                          <ChevronRight className="w-3.5 h-3.5" />
+                          {ag.property_title}
                         </Link>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
+                        <p className="text-[11px] text-slate-400 line-clamp-1">{ag.property_address}</p>
+                      </div>
+                      <span className={`px-2 py-0.5 rounded-full text-[10px] font-semibold border shrink-0 ${statusStyle.bg} ${statusStyle.text} ${statusStyle.border}`}>
+                        {ag.status}
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-2 py-2 border-y border-slate-900 text-xs">
+                      <div>
+                        <span className="text-[10px] text-slate-500 uppercase font-semibold">Rent / Month</span>
+                        <p className="font-mono font-medium text-white">{ag.rent_amount_eth} ETH</p>
+                      </div>
+                      <div>
+                        <span className="text-[10px] text-slate-500 uppercase font-semibold">Escrow Deposit</span>
+                        <p className="font-mono font-medium text-cyan-400">
+                          {ag.deposit_amount_eth} ETH{' '}
+                          <span className={`inline-block text-[9px] px-1 py-0.2 rounded border ${depositStyle.bg} ${depositStyle.text} ${depositStyle.border}`}>
+                            {ag.deposit_status}
+                          </span>
+                        </p>
+                      </div>
+                      <div>
+                        <span className="text-[10px] text-slate-500 uppercase font-semibold">Tenant</span>
+                        <p className="font-mono text-slate-300 text-[11px]">{shortenAddress(ag.tenant_wallet, 4)}</p>
+                      </div>
+                      <div>
+                        <span className="text-[10px] text-slate-500 uppercase font-semibold">Cycles Paid</span>
+                        <p className="font-mono text-brand-400">{ag.rent_paid_count} cycles</p>
+                      </div>
+                    </div>
+
+                    <Link
+                      to={`/agreements/${ag.id}`}
+                      className="w-full py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
+                    >
+                      View Full Details
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                );
+              })}
+            </div>
+          </>
         )}
       </div>
 
@@ -295,8 +359,8 @@ export const LandlordDashboard: React.FC = () => {
         {transactions.length === 0 ? (
           <p className="text-xs text-slate-500 py-4">No on-chain transactions recorded yet for this wallet.</p>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs">
+          <div className="overflow-x-auto pb-2 scrollbar-none">
+            <table className="w-full min-w-[520px] text-left text-xs">
               <thead>
                 <tr className="border-b border-slate-800 text-slate-500 text-[10px] uppercase">
                   <th className="py-2.5 px-3">Event Type</th>

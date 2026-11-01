@@ -52,10 +52,10 @@ export const LandingPage: React.FC = () => {
             Immutable agreement terms hashed on-chain, verifiable transactions, and automated settlement.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 max-w-xl mx-auto">
             <Link
               to="/agreements/new"
-              className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-500 hover:to-emerald-500 text-white font-semibold text-sm shadow-xl shadow-brand-600/20 flex items-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98]"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-500 hover:to-emerald-500 text-white font-semibold text-sm shadow-xl shadow-brand-600/20 flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-[0.98]"
             >
               Create Rental Agreement
               <ArrowRight className="w-4 h-4" />
@@ -63,14 +63,14 @@ export const LandingPage: React.FC = () => {
 
             <Link
               to="/tenant"
-              className="px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700/80 font-semibold text-sm flex items-center gap-2 transition-all hover:scale-[1.02]"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700/80 font-semibold text-sm flex items-center justify-center gap-2 transition-all hover:scale-[1.02]"
             >
               Tenant Dashboard
             </Link>
 
             <Link
               to="/verify"
-              className="px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-brand-400 border border-brand-500/20 font-semibold text-sm flex items-center gap-2 transition-all hover:scale-[1.02]"
+              className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-brand-400 border border-brand-500/20 font-semibold text-sm flex items-center justify-center gap-2 transition-all hover:scale-[1.02]"
             >
               <FileCheck2 className="w-4 h-4" />
               Verify Lease Hash
@@ -150,8 +150,8 @@ export const LandingPage: React.FC = () => {
             Traditional Paper Leases vs. Rentora Smart Contracts
           </h2>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm">
+          <div className="overflow-x-auto pb-2 scrollbar-none">
+            <table className="w-full min-w-[580px] text-left text-xs sm:text-sm">
               <thead>
                 <tr className="border-b border-slate-800 text-slate-400">
                   <th className="py-4 px-4 font-semibold">Feature / Aspect</th>
@@ -200,16 +200,16 @@ export const LandingPage: React.FC = () => {
           <p className="mt-3 text-slate-300 text-sm max-w-xl mx-auto">
             Connect your MetaMask wallet, draft customized terms, and invite your tenant to review and activate on-chain.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 max-w-md mx-auto">
             <Link
               to="/agreements/new"
-              className="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-sm shadow-lg shadow-brand-500/20 transition-all hover:scale-105"
+              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-sm shadow-lg shadow-brand-500/20 transition-all hover:scale-105 inline-flex items-center justify-center gap-2"
             >
               Draft New Lease Now
             </Link>
             <Link
               to="/verify"
-              className="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-sm transition-all"
+              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-sm transition-all inline-flex items-center justify-center gap-2"
             >
               Verify Existing Agreement
             </Link>

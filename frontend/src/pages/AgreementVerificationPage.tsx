@@ -280,7 +280,7 @@ export const AgreementVerificationPage: React.FC = () => {
             <button
               type="submit"
               disabled={loading}
-              className="px-6 py-3 rounded-xl bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-500 hover:to-emerald-500 text-white text-xs font-semibold shadow-lg shadow-brand-500/20 inline-flex items-center gap-2 transition-all hover:scale-105"
+              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-brand-600 to-emerald-600 hover:from-brand-500 hover:to-emerald-500 text-white text-xs font-semibold shadow-lg shadow-brand-500/20 inline-flex items-center justify-center gap-2 transition-all hover:scale-105"
             >
               {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <FileCheck2 className="w-4 h-4" />}
               Run Cryptographic Verification
@@ -292,21 +292,21 @@ export const AgreementVerificationPage: React.FC = () => {
       {/* Verification Result Card */}
       {verificationResult && (
         <div
-          className={`p-6 rounded-3xl border ${
+          className={`p-5 sm:p-6 rounded-3xl border ${
             verificationResult.isValid
               ? 'bg-emerald-500/10 border-emerald-500/30'
               : 'bg-rose-500/10 border-rose-500/30'
           } space-y-4 animate-in fade-in zoom-in-95 duration-200`}
         >
-          <div className="flex items-center gap-3">
+          <div className="flex items-start sm:items-center gap-3">
             {verificationResult.isValid ? (
-              <CheckCircle2 className="w-7 h-7 text-emerald-400 shrink-0" />
+              <CheckCircle2 className="w-6 h-6 sm:w-7 sm:h-7 text-emerald-400 shrink-0 mt-0.5 sm:mt-0" />
             ) : (
-              <XCircle className="w-7 h-7 text-rose-400 shrink-0" />
+              <XCircle className="w-6 h-6 sm:w-7 sm:h-7 text-rose-400 shrink-0 mt-0.5 sm:mt-0" />
             )}
             <div>
               <h3
-                className={`text-lg font-bold ${
+                className={`text-base sm:text-lg font-bold ${
                   verificationResult.isValid ? 'text-emerald-400' : 'text-rose-400'
                 }`}
               >
@@ -318,15 +318,15 @@ export const AgreementVerificationPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">
-            <div className="flex items-center justify-between text-xs">
-              <span className="text-slate-400 font-medium">Computed Keccak-256 Hash:</span>
+          <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2.5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between text-xs gap-1">
+              <span className="text-slate-400 font-medium shrink-0">Computed Keccak-256 Hash:</span>
               <span className="font-mono text-brand-400 break-all">{verificationResult.computedHash}</span>
             </div>
 
             {verificationResult.onChainHash && (
-              <div className="flex items-center justify-between text-xs pt-1 border-t border-slate-900">
-                <span className="text-slate-400 font-medium">Recorded On-Chain Hash:</span>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between text-xs pt-1.5 border-t border-slate-900 gap-1">
+                <span className="text-slate-400 font-medium shrink-0">Recorded On-Chain Hash:</span>
                 <span className="font-mono text-white break-all">{verificationResult.onChainHash}</span>
               </div>
             )}

@@ -92,63 +92,108 @@ export const TransactionHistoryPage: React.FC = () => {
             </p>
           </div>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs">
-              <thead>
-                <tr className="border-b border-slate-800 text-slate-500 text-[10px] uppercase tracking-wider">
-                  <th className="py-3 px-4">Event / Action</th>
-                  <th className="py-3 px-4">Transaction Hash</th>
-                  <th className="py-3 px-4">Sender Wallet</th>
-                  <th className="py-3 px-4">Amount</th>
-                  <th className="py-3 px-4">Status</th>
-                  <th className="py-3 px-4">Date / Time</th>
-                  <th className="py-3 px-4 text-right">Block Explorer</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-800/60 font-mono text-[11px] text-slate-300">
-                {filteredTransactions.map((tx) => (
-                  <tr key={tx.id} className="hover:bg-slate-800/30 transition-colors">
-                    <td className="py-3.5 px-4 font-sans font-medium text-white">
-                      <span className="flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-brand-500" />
-                        {tx.tx_type}
-                      </span>
-                    </td>
-
-                    <td className="py-3.5 px-4 text-brand-400 font-semibold">
-                      {shortenAddress(tx.tx_hash, 6)}
-                    </td>
-
-                    <td className="py-3.5 px-4 text-slate-400">{shortenAddress(tx.sender_wallet, 4)}</td>
-
-                    <td className="py-3.5 px-4 font-bold text-white">
-                      {tx.amount_eth && tx.amount_eth !== '0' ? `${tx.amount_eth} ETH` : '—'}
-                    </td>
-
-                    <td className="py-3.5 px-4 font-sans">
-                      <span className="px-2 py-0.5 rounded text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 uppercase font-semibold">
-                        {tx.status}
-                      </span>
-                    </td>
-
-                    <td className="py-3.5 px-4 font-sans text-slate-400">{formatDate(tx.created_at)}</td>
-
-                    <td className="py-3.5 px-4 text-right font-sans">
-                      <a
-                        href={`${explorerBaseUrl}/tx/${tx.tx_hash}`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-1 text-slate-400 hover:text-white transition-colors"
-                      >
-                        Sepolia Etherscan
-                        <ExternalLink className="w-3 h-3 text-brand-400" />
-                      </a>
-                    </td>
+          <>
+            {/* Desktop / Tablet Table */}
+            <div className="hidden md:block overflow-x-auto pb-2 scrollbar-none">
+              <table className="w-full min-w-[650px] text-left text-xs">
+                <thead>
+                  <tr className="border-b border-slate-800 text-slate-500 text-[10px] uppercase tracking-wider">
+                    <th className="py-3 px-4">Event / Action</th>
+                    <th className="py-3 px-4">Transaction Hash</th>
+                    <th className="py-3 px-4">Sender Wallet</th>
+                    <th className="py-3 px-4">Amount</th>
+                    <th className="py-3 px-4">Status</th>
+                    <th className="py-3 px-4">Date / Time</th>
+                    <th className="py-3 px-4 text-right">Block Explorer</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody className="divide-y divide-slate-800/60 font-mono text-[11px] text-slate-300">
+                  {filteredTransactions.map((tx) => (
+                    <tr key={tx.id} className="hover:bg-slate-800/30 transition-colors">
+                      <td className="py-3.5 px-4 font-sans font-medium text-white">
+                        <span className="flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-brand-500" />
+                          {tx.tx_type}
+                        </span>
+                      </td>
+
+                      <td className="py-3.5 px-4 text-brand-400 font-semibold">
+                        {shortenAddress(tx.tx_hash, 6)}
+                      </td>
+
+                      <td className="py-3.5 px-4 text-slate-400">{shortenAddress(tx.sender_wallet, 4)}</td>
+
+                      <td className="py-3.5 px-4 font-bold text-white">
+                        {tx.amount_eth && tx.amount_eth !== '0' ? `${tx.amount_eth} ETH` : '—'}
+                      </td>
+
+                      <td className="py-3.5 px-4 font-sans">
+                        <span className="px-2 py-0.5 rounded text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 uppercase font-semibold">
+                          {tx.status}
+                        </span>
+                      </td>
+
+                      <td className="py-3.5 px-4 font-sans text-slate-400">{formatDate(tx.created_at)}</td>
+
+                      <td className="py-3.5 px-4 text-right font-sans">
+                        <a
+                          href={`${explorerBaseUrl}/tx/${tx.tx_hash}`}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-1 text-slate-400 hover:text-white transition-colors"
+                        >
+                          Sepolia Etherscan
+                          <ExternalLink className="w-3 h-3 text-brand-400" />
+                        </a>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Mobile Transaction Cards */}
+            <div className="md:hidden space-y-3">
+              {filteredTransactions.map((tx) => (
+                <div key={tx.id} className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2.5">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-semibold text-white flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-500" />
+                      {tx.tx_type}
+                    </span>
+                    <span className="px-2 py-0.5 rounded text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 uppercase font-semibold">
+                      {tx.status}
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 text-xs py-1.5 border-y border-slate-900">
+                    <div>
+                      <span className="text-[10px] text-slate-500 uppercase font-semibold">Amount</span>
+                      <p className="font-mono font-medium text-white">
+                        {tx.amount_eth && tx.amount_eth !== '0' ? `${tx.amount_eth} ETH` : '—'}
+                      </p>
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-slate-500 uppercase font-semibold">Date</span>
+                      <p className="text-[11px] text-slate-400">{formatDate(tx.created_at)}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between text-xs pt-0.5">
+                    <span className="font-mono text-brand-400">{shortenAddress(tx.tx_hash, 6)}</span>
+                    <a
+                      href={`${explorerBaseUrl}/tx/${tx.tx_hash}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 text-[11px] text-slate-400 hover:text-white"
+                    >
+                      Etherscan <ExternalLink className="w-3 h-3 text-brand-400" />
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
         )}
       </div>
     </div>
