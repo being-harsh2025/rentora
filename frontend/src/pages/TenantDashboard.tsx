@@ -249,3 +249,4 @@ export const TenantDashboard: React.FC = () => {
     </div>
   );
 };
+

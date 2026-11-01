@@ -35,9 +35,19 @@ export const LandingPage: React.FC = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-brand-500/10 blur-[120px] rounded-full pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-brand-400 text-xs font-semibold uppercase tracking-wider mb-8 shadow-sm">
+          <div className="flex justify-center mb-6">
+            <div className="bg-white p-2.5 sm:p-3 rounded-2xl shadow-2xl border border-slate-700/60 inline-flex items-center hover:scale-105 transition-transform">
+              <img
+                src="/logo.png"
+                alt="Rentora - Smart Renting. Secure Agreements."
+                className="h-12 sm:h-16 w-auto object-contain"
+              />
+            </div>
+          </div>
+
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-brand-400 text-xs font-semibold uppercase tracking-wider mb-6 shadow-sm">
             <Sparkles className="w-3.5 h-3.5" />
-            Ethereum Blockchain-Powered Rentals
+            Smart Renting. Secure Agreements.
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-[1.1]">
@@ -103,7 +113,7 @@ export const LandingPage: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-            How RentChain Solves Traditional Rental Friction
+            How Rentora Solves Traditional Rental Friction
           </h2>
           <p className="mt-3 text-sm text-slate-400">
             Engineered with strict Ethereum smart contract verification, cryptographic proofs, and escrow security.
@@ -143,11 +153,11 @@ export const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Comparison: Traditional vs RentChain */}
+      {/* Comparison: Traditional vs Rentora */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-slate-900/40 border border-slate-800 rounded-3xl p-6 sm:p-10">
           <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 text-center">
-            Traditional Paper Leases vs. RentChain Smart Contracts
+            Traditional Paper Leases vs. Rentora Smart Contracts
           </h2>
 
           <div className="overflow-x-auto">
@@ -156,7 +166,7 @@ export const LandingPage: React.FC = () => {
                 <tr className="border-b border-slate-800 text-slate-400">
                   <th className="py-4 px-4 font-semibold">Feature / Aspect</th>
                   <th className="py-4 px-4 font-semibold text-rose-400">Traditional System</th>
-                  <th className="py-4 px-4 font-semibold text-brand-400">RentChain Smart Contract</th>
+                  <th className="py-4 px-4 font-semibold text-brand-400">Rentora Smart Contract</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
@@ -219,3 +229,4 @@ export const LandingPage: React.FC = () => {
     </div>
   );
 };
+

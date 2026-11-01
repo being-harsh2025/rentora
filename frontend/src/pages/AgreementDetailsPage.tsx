@@ -892,3 +892,4 @@ export const AgreementDetailsPage: React.FC = () => {
     </div>
   );
 };
+

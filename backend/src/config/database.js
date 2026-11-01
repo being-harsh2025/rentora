@@ -99,3 +99,4 @@ db.exec(`
 console.log(`[Database] SQLite initialized at ${dbPath}`);
 
 export default db;
+

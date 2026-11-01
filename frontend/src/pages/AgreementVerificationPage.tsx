@@ -336,3 +336,4 @@ export const AgreementVerificationPage: React.FC = () => {
     </div>
   );
 };
+

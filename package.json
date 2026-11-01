@@ -1,7 +1,7 @@
 {
-  "name": "smart-contract-rental-agreement",
+  "name": "rentora-platform",
   "version": "1.0.0",
-  "description": "Smart Contract-Based Rental Agreement Management Platform on Ethereum",
+  "description": "Rentora: Smart Renting. Secure Agreements. Blockchain-based rental agreement platform on Ethereum",
   "scripts": {
     "dev:backend": "cd backend && npm run dev",
     "dev:frontend": "cd frontend && npm run dev",
@@ -30,3 +30,4 @@
   "author": "Antigravity Engineering",
   "license": "MIT"
 }
+

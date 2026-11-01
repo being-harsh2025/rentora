@@ -1,7 +1,7 @@
 # Development Progress - Smart Contract-Based Rental Agreement
 
 ## Project Status Overview
-- **Project Name:** Smart Contract-Based Rental Agreement Platform (RentChain)
+- **Project Name:** Smart Contract-Based Rental Agreement Platform (Rentora - Smart Renting. Secure Agreements.)
 - **Current Phase:** All Phases 1 Through 9 Fully Completed
 - **Status Date:** November 1, 2026
 - **Architecture:** Monorepo with Blockchain (Hardhat + Solidity 0.8.24), Backend (Node.js/Express + SQLite), Frontend (Vite + React 18 + TypeScript + Tailwind CSS), and Comprehensive Academic Documentation (`/docs`).

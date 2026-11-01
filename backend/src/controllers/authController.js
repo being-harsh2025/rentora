@@ -133,7 +133,7 @@ export function getWalletNonce(req, res) {
       db.prepare('UPDATE users SET nonce = ? WHERE id = ?').run(nonce, user.id);
     }
 
-    const messageToSign = `Welcome to RentChain!\n\nPlease sign this message to verify ownership of your wallet.\nNonce: ${nonce}\nTimestamp: ${Date.now()}`;
+    const messageToSign = `Welcome to Rentora!\n\nPlease sign this message to verify ownership of your wallet.\nNonce: ${nonce}\nTimestamp: ${Date.now()}`;
 
     return res.json({ nonce, messageToSign });
   } catch (error) {
@@ -161,7 +161,7 @@ export async function verifyWalletLogin(req, res) {
     if (!user) {
       // Auto-register or prompt for role
       const defaultRole = req.body.role && ['landlord', 'tenant'].includes(req.body.role) ? req.body.role : 'tenant';
-      const placeholderEmail = `${normalizedWallet.substring(0, 8)}@rentchain.local`;
+      const placeholderEmail = `${normalizedWallet.substring(0, 8)}@rentora.local`;
       const dummyHash = await bcrypt.hash(crypto.randomBytes(32).toString('hex'), 10);
       const displayName = `User ${normalizedWallet.substring(0, 6)}...${normalizedWallet.substring(38)}`;
 
@@ -216,3 +216,4 @@ export function getCurrentUser(req, res) {
     return res.status(500).json({ error: 'Failed to retrieve current user.' });
   }
 }
+

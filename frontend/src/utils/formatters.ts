@@ -66,3 +66,4 @@ export function getStatusColor(status: string): { bg: string; text: string; bord
       return { bg: 'bg-slate-800', text: 'text-slate-400', border: 'border-slate-700' };
   }
 }
+

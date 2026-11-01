@@ -80,3 +80,4 @@ export function recordTransaction(req, res) {
     return res.status(500).json({ error: 'Failed to record transaction.' });
   }
 }
+

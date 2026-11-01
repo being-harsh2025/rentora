@@ -1,4 +1,9 @@
-# RentChain: Smart Contract-Based Rental Agreement Platform
+<p align="center">
+  <img src="frontend/public/logo.png" alt="Rentora Logo" width="360" />
+</p>
+
+# Rentora: Smart Contract-Based Rental Agreement Platform
+> **Smart Renting. Secure Agreements.**
 
 [![Solidity](https://img.shields.io/badge/Solidity-0.8.24-363636?logo=solidity)](https://soliditylang.org/)
 [![Ethereum](https://img.shields.io/badge/Network-Sepolia%20%7C%20Hardhat-3c3c3d?logo=ethereum)](https://sepolia.etherscan.io/)
@@ -8,7 +13,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-3.4-38bdf8?logo=tailwindcss)](https://tailwindcss.com/)
 [![Tests](https://img.shields.io/badge/Tests-31%2F31%20Passing-brightgreen)]()
 
-RentChain is a decentralized rental agreement management platform built on the Ethereum blockchain. It replaces ambiguous, paper-based leases with self-executing Solidity smart contracts featuring **smart contract deposit escrow**, **deterministic Keccak-256 agreement terms hashing**, **automated monthly rent forwarding**, and **transparent deposit dispute resolution**.
+Rentora is a decentralized rental agreement management platform built on the Ethereum blockchain. It replaces ambiguous, paper-based leases with self-executing Solidity smart contracts featuring **smart contract deposit escrow**, **deterministic Keccak-256 agreement terms hashing**, **automated monthly rent forwarding**, and **transparent deposit dispute resolution**.
 
 ---
 
@@ -195,3 +200,4 @@ Detailed academic documentation is available inside the `/docs` directory:
 ## ⚖️ License & Disclaimer
 
 This project is licensed under the MIT License. Developed for academic demonstration and collegiate evaluation purposes. All smart contracts use testnet Sepolia ETH and do not replace statutory local tenancy laws.
+

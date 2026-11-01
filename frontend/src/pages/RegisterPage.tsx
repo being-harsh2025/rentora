@@ -42,12 +42,12 @@ export const RegisterPage: React.FC = () => {
     <div className="min-h-[80vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl relative">
         <div className="text-center mb-8">
-          <div className="inline-flex w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/20 items-center justify-center text-brand-400 mb-3">
-            <ShieldCheck className="w-6 h-6" />
+          <div className="inline-flex bg-white p-2 rounded-2xl shadow-lg border border-slate-700/60 items-center justify-center mb-3">
+            <img src="/logo.png" alt="Rentora Logo" className="h-9 w-auto object-contain" />
           </div>
           <h2 className="text-2xl font-bold text-white tracking-tight">Create an Account</h2>
           <p className="text-xs text-slate-400 mt-1">
-            Join RentChain to issue or execute smart contract rental agreements
+            Join Rentora to issue or execute smart contract rental agreements
           </p>
         </div>
 
@@ -173,3 +173,4 @@ export const RegisterPage: React.FC = () => {
     </div>
   );
 };
+

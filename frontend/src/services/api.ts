@@ -1,7 +1,7 @@
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 function getAuthHeaders(): HeadersInit {
-  const token = localStorage.getItem('rentchain_token');
+  const token = localStorage.getItem('rentora_token') || localStorage.getItem('rentchain_token');
   const headers: HeadersInit = {
     'Content-Type': 'application/json',
   };
@@ -59,3 +59,4 @@ export const transactionsApi = {
   },
   record: (payload: any) => apiRequest('/transactions', { method: 'POST', body: JSON.stringify(payload) }),
 };
+

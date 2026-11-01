@@ -1,6 +1,11 @@
 # Final Academic Project Report
 
-# Project Title: Smart Contract-Based Rental Agreement Platform (RentChain)
+<p align="center">
+  <img src="logo.png" alt="Rentora Logo" width="320" />
+</p>
+
+# Project Title: Smart Contract-Based Rental Agreement Platform (Rentora)
+> **Smart Renting. Secure Agreements.**
 
 **Department of Computer Science & Engineering**  
 **Academic Year:** 2026–2027  
@@ -13,7 +18,7 @@
 
 Traditional residential and commercial rental management systems rely heavily on bilateral trust, manual paperwork, and discretionary escrow holding by landlords. Disagreements frequently emerge regarding the non-refund of security deposits, disputed property damages, rent arrears, and altered lease clauses. 
 
-This project designs, implements, and evaluates **RentChain**, an end-to-end decentralized rental agreement management platform leveraging Ethereum smart contracts, deterministic cryptographic hashing, and modern Web3 frontend architecture. RentChain enforces automated financial custody of security deposits within a decentralized smart contract vault, preventing unilateral fund expropriation. Monthly rental payments are routed directly with verifiable block timestamps and late-payment tracking. Agreement terms are hashed into immutable 32-byte Keccak-256 fingerprints stored permanently on-chain, enabling zero-trust cryptographic verification of off-chain digital leases. 
+This project designs, implements, and evaluates **Rentora**, an end-to-end decentralized rental agreement management platform leveraging Ethereum smart contracts, deterministic cryptographic hashing, and modern Web3 frontend architecture. Rentora enforces automated financial custody of security deposits within a decentralized smart contract vault, preventing unilateral fund expropriation. Monthly rental payments are routed directly with verifiable block timestamps and late-payment tracking. Agreement terms are hashed into immutable 32-byte Keccak-256 fingerprints stored permanently on-chain, enabling zero-trust cryptographic verification of off-chain digital leases. 
 
 The complete platform was developed using Solidity 0.8.24, Hardhat, Ethers.js v6, React 18 with TypeScript and Tailwind CSS, and a Node.js/Express backend with an ACID-compliant relational datastore. A comprehensive test suite comprising 31 automated tests (27 on-chain smart contract tests and 4 backend tests) demonstrated 100% pass rates across reentrancy protection, access control, deposit escrow settlement, and late payment detection.
 
@@ -42,7 +47,7 @@ The global rental housing economy represents a multi-trillion-dollar sector. In 
 ## 2. Literature Review & Existing System Analysis
 
 ### 2.1 Analysis of Existing Systems
-| Parameter | Traditional Paper Agreements | Centralized Rental Portals (NoBroker, MagicBricks) | RentChain Smart Contract Platform |
+| Parameter | Traditional Paper Agreements | Centralized Rental Portals (NoBroker, MagicBricks) | Rentora Smart Contract Platform |
 | :--- | :--- | :--- | :--- |
 | **Deposit Custody** | Landlord's personal bank account | Landlord's account or proprietary platform | Decentralized Ethereum smart contract escrow |
 | **Document Integrity** | Vulnerable to physical damage or forgery | Centralized database; subject to administrator modification | 32-byte Keccak-256 hash verified permanently on-chain |
@@ -149,7 +154,7 @@ The frontend is structured into dedicated role-specific perspectives:
 
 ## 7. Educational Scope & Real-World Limitations
 
-While RentChain represents an advanced decentralized architecture, this project explicitly documents its boundary conditions:
+While Rentora represents an advanced decentralized architecture, this project explicitly documents its boundary conditions:
 1. **Testnet Economics:** Operates on Ethereum Sepolia using test ETH. It does not handle real fiat currency (INR/USD) without an authorized off-ramp oracle.
 2. **Legal Enforceability:** Smart contracts enforce mathematical execution of fund transfers; however, traditional legal tenancy enforceability remains subject to regional statutory property acts (e.g. state Rent Control Acts).
 3. **Physical Damage Verification:** Solidity smart contracts execute deterministically on-chain and cannot independently verify physical property conditions without trusted decentralized oracle networks (e.g., Chainlink or Kleros decentralized jurors).
@@ -167,4 +172,5 @@ While RentChain represents an advanced decentralized architecture, this project 
 
 ## 9. Conclusion
 
-The RentChain platform successfully demonstrates the application of blockchain technology to residential rental agreements. By replacing arbitrary landlord custody with autonomous smart contract escrow, validating agreement integrity through deterministic Keccak-256 hashing, and providing transparent payment records, the platform eliminates core friction points in modern tenancy management. The resulting solution provides a secure, fully functional, and academically rigorous implementation suitable for collegiate evaluation and real-world Web3 exploration.
+The Rentora platform successfully demonstrates the application of blockchain technology to residential rental agreements. By replacing arbitrary landlord custody with autonomous smart contract escrow, validating agreement integrity through deterministic Keccak-256 hashing, and providing transparent payment records, the platform eliminates core friction points in modern tenancy management. The resulting solution provides a secure, fully functional, and academically rigorous implementation suitable for collegiate evaluation and real-world Web3 exploration.
+

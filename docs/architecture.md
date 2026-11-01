@@ -1,12 +1,13 @@
 # System Architecture & Technical Specification
 
-## Project: Smart Contract-Based Rental Agreement Platform (RentChain)
+## Project: Smart Contract-Based Rental Agreement Platform (Rentora)
+> **Smart Renting. Secure Agreements.**
 
 ---
 
 ## 1. Executive Summary & Architectural Overview
 
-The **RentChain** platform is a decentralized web application engineered to replace ambiguous, trust-dependent, paper-based tenancy contracts with immutable, self-executing Ethereum smart contracts. It implements an architecture where:
+The **Rentora** platform is a decentralized web application engineered to replace ambiguous, trust-dependent, paper-based tenancy contracts with immutable, self-executing Ethereum smart contracts. It implements an architecture where:
 - **Financial custody** (security deposits and rental installments) is strictly governed by smart contract code.
 - **Contractual integrity** is mathematically validated using off-chain canonical serialization and on-chain deterministic Keccak-256 cryptographic hashing.
 - **Off-chain metadata and user interactions** are indexed for performance and usability using a Node.js/Express backend paired with an ACID-compliant transactional datastore (SQLite/PostgreSQL).
@@ -47,7 +48,7 @@ The **RentChain** platform is a decentralized web application engineered to repl
 
 Storing large text documents or sensitive personally identifiable information (PII) directly on the Ethereum blockchain is computationally prohibitive (gas costs exceed \$100+ per kilobyte) and violates privacy best practices (data on a public ledger is globally visible and permanent). 
 
-To solve this, RentChain employs a hybrid on-chain/off-chain model:
+To solve this, Rentora employs a hybrid on-chain/off-chain model:
 
 | Data Element | Layer | Storage Medium | Rationale |
 | :--- | :--- | :--- | :--- |
@@ -100,7 +101,7 @@ Solidity 0.8.24 custom errors (`InvalidAddress`, `SameLandlordAndTenant`, `Incor
 
 ## 5. Security Deposit Dispute Resolution Mechanism
 
-Because smart contracts cannot independently inspect physical property damages, RentChain implements a transparent, bilateral dispute protocol:
+Because smart contracts cannot independently inspect physical property damages, Rentora implements a transparent, bilateral dispute protocol:
 
 1. **Inspection & Proposal:** Upon lease expiration, the landlord can propose a deduction amount ($\le \text{DepositHeld}$) accompanied by a descriptive reason string.
 2. **Tenant Review Window:**
@@ -115,11 +116,12 @@ Because smart contracts cannot independently inspect physical property damages, 
 
 ## 6. Web3 Authentication Architecture
 
-RentChain supports dual authentication paradigms:
+Rentora supports dual authentication paradigms:
 1. **Traditional Email/Password:** Hashed with bcrypt (10 rounds) and secured with signed JSON Web Tokens (JWT).
 2. **Cryptographic Web3 Wallet Signature (ERC-191):**
    - The backend issues a time-bound challenge containing an entropy nonce:
-     `"Welcome to RentChain! Nonce: <random_hex> Timestamp: <epoch>"`
+     `"Welcome to Rentora! Nonce: <random_hex> Timestamp: <epoch>"`
    - The user signs this message inside MetaMask without paying any gas.
    - The backend recovers the public key using `ethers.verifyMessage` and issues a session JWT linked directly to the validated wallet address.
    - This ensures wallet authorization cannot be spoofed across accounts.
+

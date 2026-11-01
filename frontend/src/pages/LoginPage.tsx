@@ -53,10 +53,10 @@ export const LoginPage: React.FC = () => {
     <div className="min-h-[80vh] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl relative">
         <div className="text-center mb-8">
-          <div className="inline-flex w-12 h-12 rounded-2xl bg-brand-500/10 border border-brand-500/20 items-center justify-center text-brand-400 mb-3">
-            <ShieldCheck className="w-6 h-6" />
+          <div className="inline-flex bg-white p-2 rounded-2xl shadow-lg border border-slate-700/60 items-center justify-center mb-3">
+            <img src="/logo.png" alt="Rentora Logo" className="h-9 w-auto object-contain" />
           </div>
-          <h2 className="text-2xl font-bold text-white tracking-tight">Sign in to RentChain</h2>
+          <h2 className="text-2xl font-bold text-white tracking-tight">Sign in to Rentora</h2>
           <p className="text-xs text-slate-400 mt-1">
             Access your agreements, escrow deposits, and payment tracking
           </p>
@@ -134,7 +134,7 @@ export const LoginPage: React.FC = () => {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="landlord@rentchain.local"
+                placeholder="landlord@rentora.local"
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 text-white text-xs outline-none transition-all placeholder:text-slate-600"
               />
             </div>
@@ -175,3 +175,4 @@ export const LoginPage: React.FC = () => {
     </div>
   );
 };
+

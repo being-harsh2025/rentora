@@ -338,3 +338,4 @@ export const LandlordDashboard: React.FC = () => {
     </div>
   );
 };
+

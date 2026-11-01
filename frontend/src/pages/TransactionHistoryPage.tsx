@@ -154,3 +154,4 @@ export const TransactionHistoryPage: React.FC = () => {
     </div>
   );
 };
+

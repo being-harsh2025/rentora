@@ -1,6 +1,7 @@
 # Comprehensive Testing Report & Verification Matrix
 
-## Project: Smart Contract-Based Rental Agreement Platform (RentChain)
+## Project: Smart Contract-Based Rental Agreement Platform (Rentora)
+> **Smart Renting. Secure Agreements.**
 
 ---
 
@@ -126,3 +127,4 @@ Testing was performed across both on-chain Solidity contracts and the off-chain 
    No participant can forge another wallet's identity. All state-changing smart contract operations inspect `msg.sender` directly against the stored immutable `agreement.landlord` and `agreement.tenant` variables.
 3. **Double Spend / Duplicate Rent Resistance:**
    `nextRentDueTimestamp` strictly advances by `paymentInterval` (30 days) upon each confirmed payment. The contract prevents advancing beyond the lease duration (`AgreementTermOver`).
+

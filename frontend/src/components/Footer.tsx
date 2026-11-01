@@ -12,9 +12,14 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="md:col-span-2 space-y-3">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-brand-500" />
-              <span className="text-white font-bold tracking-tight">RentChain Decentralized Platform</span>
+            <div className="flex items-center gap-3">
+              <div className="bg-white px-2 py-1 rounded-xl shadow-sm border border-slate-700/50 w-fit">
+                <img
+                  src="/logo.png"
+                  alt="Rentora Logo"
+                  className="h-8 w-auto object-contain"
+                />
+              </div>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed max-w-md">
               A peer-to-peer rental agreement management platform powered by Solidity smart contracts on the Ethereum blockchain. Features verifiable lease hashes, smart contract deposit escrow, and transparent payment settlement.
@@ -68,7 +73,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <p>© {new Date().getFullYear()} RentChain Project. All smart contracts audited with automated Chai/Mocha tests.</p>
+          <p>© {new Date().getFullYear()} Rentora Platform. All smart contracts audited with automated Chai/Mocha tests.</p>
           <div className="flex items-center gap-4">
             <span className="text-emerald-400 flex items-center gap-1">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping inline-block" />
@@ -80,3 +85,4 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
+

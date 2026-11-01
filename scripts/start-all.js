@@ -7,7 +7,8 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
 console.log('================================================================');
-console.log('  STARTING RENTCHAIN FULL-STACK BLOCKCHAIN PLATFORM');
+console.log('  STARTING RENTORA FULL-STACK BLOCKCHAIN PLATFORM');
+console.log('  Smart Renting. Secure Agreements.');
 console.log('================================================================');
 console.log('  [Backend]  http://localhost:5000/api');
 console.log('  [Frontend] http://localhost:5173');
@@ -41,3 +42,4 @@ const cleanup = () => {
 
 process.on('SIGINT', cleanup);
 process.on('SIGTERM', cleanup);
+

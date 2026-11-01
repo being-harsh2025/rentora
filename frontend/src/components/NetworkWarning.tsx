@@ -34,3 +34,4 @@ export const NetworkWarning: React.FC = () => {
     </div>
   );
 };
+

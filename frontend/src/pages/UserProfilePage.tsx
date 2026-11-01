@@ -26,7 +26,7 @@ export const UserProfilePage: React.FC = () => {
           </div>
           <div>
             <h2 className="text-xl font-bold text-white">{user?.name || 'Active User'}</h2>
-            <p className="text-xs text-slate-400 mt-0.5">{user?.email || 'wallet-authenticated@rentchain.local'}</p>
+            <p className="text-xs text-slate-400 mt-0.5">{user?.email || 'wallet-authenticated@rentora.local'}</p>
             <div className="mt-2 flex items-center gap-2">
               <span className="px-2.5 py-0.5 rounded-md bg-brand-500/10 text-brand-400 text-[11px] font-semibold border border-brand-500/20 capitalize">
                 Role: {user?.role || 'Landlord'}
@@ -119,3 +119,4 @@ export const UserProfilePage: React.FC = () => {
     </div>
   );
 };
+

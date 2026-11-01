@@ -1,6 +1,7 @@
 # Installation, Setup & Deployment Guide
 
-## Project: Smart Contract-Based Rental Agreement Platform (RentChain)
+## Project: Smart Contract-Based Rental Agreement Platform (Rentora)
+> **Smart Renting. Secure Agreements.**
 
 ---
 
@@ -133,3 +134,4 @@ npx hardhat verify --network sepolia <DEPLOYED_CONTRACT_ADDRESS>
    If your MetaMask is connected to Ethereum Mainnet or Polygon, the top navigation banner displays an orange alert. Simply click the **Sepolia** or **Localhost** button to trigger automatic network switching.
 3. **Switching Between Landlord and Tenant:**
    For rapid grading by professors or evaluators without having to disconnect wallets, click the **Landlord** or **Tenant** pill in the top navigation bar or visit `/profile`.
+

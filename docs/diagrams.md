@@ -1,4 +1,5 @@
-# RentChain System Architecture & Engineering Diagrams
+# Rentora System Architecture & Engineering Diagrams
+> **Smart Renting. Secure Agreements.**
 
 All diagrams below are rendered in editable, standard Mermaid format.
 
@@ -121,13 +122,13 @@ graph LR
 ### Level 0 Context Diagram
 ```mermaid
 flowchart TD
-    Landlord["Landlord"] -->|1. Agreement Parameters & Clauses| RentChain["RentChain Decentralized Platform"]
-    RentChain -->|2. Terms Hash & Contract Transaction| Blockchain["Ethereum Sepolia Blockchain"]
-    Blockchain -->|3. On-Chain Agreement Created Event| RentChain
-    Tenant["Tenant"] -->|4. Review & Digital Acceptance| RentChain
+    Landlord["Landlord"] -->|1. Agreement Parameters & Clauses| Rentora["Rentora Decentralized Platform"]
+    Rentora -->|2. Terms Hash & Contract Transaction| Blockchain["Ethereum Sepolia Blockchain"]
+    Blockchain -->|3. On-Chain Agreement Created Event| Rentora
+    Tenant["Tenant"] -->|4. Review & Digital Acceptance| Rentora
     Tenant -->|5. Deposit & Rent Payment TXs| Blockchain
     Blockchain -->|6. Direct ETH Transfer| Landlord
-    RentChain -->|7. Verification Status & Explorer Links| Verifier["Public Verifier / Auditor"]
+    Rentora -->|7. Verification Status & Explorer Links| Verifier["Public Verifier / Auditor"]
 ```
 
 ### Level 1 Data Flow Diagram
@@ -288,7 +289,7 @@ erDiagram
 sequenceDiagram
     autonumber
     actor Landlord as Landlord (MetaMask)
-    participant UI as RentChain Web UI
+    participant UI as Rentora Web UI
     participant Backend as Backend Gateway & DB
     actor Tenant as Tenant (MetaMask)
     participant Contract as RentalAgreement.sol
@@ -333,3 +334,4 @@ sequenceDiagram
     Landlord->>Contract: completeAgreement(agreementId)
     Contract-->>UI: AgreementCompleted event
 ```
+

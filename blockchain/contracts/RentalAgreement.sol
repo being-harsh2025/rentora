@@ -642,3 +642,4 @@ contract RentalAgreement is ReentrancyGuard {
         return _nextAgreementId - 1;
     }
 }
+

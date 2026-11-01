@@ -38,7 +38,7 @@ export const CreateAgreementPage: React.FC = () => {
   const [paymentIntervalDays, setPaymentIntervalDays] = useState(30);
   const [termsText, setTermsText] = useState(
 `1. The Tenant agrees to pay the agreed monthly rent on or before the due date for each 30-day period.
-2. The Security Deposit shall be held in the RentChain Smart Contract Escrow throughout the lease term.
+2. The Security Deposit shall be held in the Rentora Smart Contract Escrow throughout the lease term.
 3. The Landlord may only propose legitimate deductions for documented physical damages beyond standard wear-and-tear.
 4. The Tenant retains the right to dispute any proposed deduction on-chain.
 5. In case of mutual agreement or end of lease with no damages, the Security Deposit shall be fully refunded to the Tenant.`
@@ -434,3 +434,4 @@ export const CreateAgreementPage: React.FC = () => {
     </div>
   );
 };
+

@@ -19,7 +19,9 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [token, setToken] = useState<string | null>(localStorage.getItem('rentchain_token'));
+  const [token, setToken] = useState<string | null>(
+    localStorage.getItem('rentora_token') || localStorage.getItem('rentchain_token')
+  );
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const { account, getSigner } = useWallet();
 
@@ -31,6 +33,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           setUser(res.user);
         } catch {
           // Token invalid, clear it
+          localStorage.removeItem('rentora_token');
           localStorage.removeItem('rentchain_token');
           setToken(null);
           setUser(null);
@@ -44,14 +47,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const login = async (credentials: any) => {
     const res = await authApi.login(credentials);
-    localStorage.setItem('rentchain_token', res.token);
+    localStorage.setItem('rentora_token', res.token);
     setToken(res.token);
     setUser(res.user);
   };
 
   const register = async (userData: any) => {
     const res = await authApi.register(userData);
-    localStorage.setItem('rentchain_token', res.token);
+    localStorage.setItem('rentora_token', res.token);
     setToken(res.token);
     setUser(res.user);
   };
@@ -80,12 +83,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       role: preferredRole,
     });
 
-    localStorage.setItem('rentchain_token', res.token);
+    localStorage.setItem('rentora_token', res.token);
     setToken(res.token);
     setUser(res.user);
   };
 
   const logout = () => {
+    localStorage.removeItem('rentora_token');
     localStorage.removeItem('rentchain_token');
     setToken(null);
     setUser(null);
@@ -98,7 +102,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setUser({
         id: 9999,
         name: 'Demo Evaluator',
-        email: 'evaluator@rentchain.local',
+        email: 'evaluator@rentora.local',
         role: newRole,
         wallet_address: account,
       });
@@ -131,3 +135,4 @@ export const useAuth = () => {
   }
   return context;
 };
+

@@ -11,18 +11,18 @@ async function seed() {
 
   // Users
   const checkUser = db.prepare('SELECT id FROM users WHERE email = ?');
-  if (!checkUser.get('landlord@rentchain.local')) {
+  if (!checkUser.get('landlord@rentora.local')) {
     db.prepare(`
       INSERT INTO users (name, email, password_hash, role, wallet_address)
       VALUES (?, ?, ?, 'landlord', ?)
-    `).run('Vikram Sharma (Landlord)', 'landlord@rentchain.local', passwordHash, landlordWallet);
+    `).run('Vikram Sharma (Landlord)', 'landlord@rentora.local', passwordHash, landlordWallet);
   }
 
-  if (!checkUser.get('tenant@rentchain.local')) {
+  if (!checkUser.get('tenant@rentora.local')) {
     db.prepare(`
       INSERT INTO users (name, email, password_hash, role, wallet_address)
       VALUES (?, ?, ?, 'tenant', ?)
-    `).run('Ananya Sen (Tenant)', 'tenant@rentchain.local', passwordHash, tenantWallet);
+    `).run('Ananya Sen (Tenant)', 'tenant@rentora.local', passwordHash, tenantWallet);
   }
 
   // Agreement 1: Active Lease

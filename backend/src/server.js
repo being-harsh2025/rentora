@@ -21,7 +21,7 @@ app.use(express.json());
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'healthy',
-    service: 'RentChain Backend API',
+    service: 'Rentora Backend API',
     timestamp: new Date().toISOString()
   });
 });
@@ -36,5 +36,6 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`[RentChain Backend] Server running on http://localhost:${PORT}`);
+  console.log(`[Rentora Backend] Server running on http://localhost:${PORT}`);
 });
+
