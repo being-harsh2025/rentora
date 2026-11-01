@@ -1,9 +1,5 @@
 # Final Academic Project Report
 
-<p align="center">
-  <img src="logo.png" alt="Rentora Logo" width="320" />
-</p>
-
 # Project Title: Smart Contract-Based Rental Agreement Platform (Rentora)
 > **Smart Renting. Secure Agreements.**
 

@@ -12,14 +12,9 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="md:col-span-2 space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="bg-white px-2 py-1 rounded-xl shadow-sm border border-slate-700/50 w-fit">
-                <img
-                  src="/logo.png"
-                  alt="Rentora Logo"
-                  className="h-8 w-auto object-contain"
-                />
-              </div>
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-brand-500" />
+              <span className="text-white font-bold tracking-tight">Rentora Decentralized Platform</span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed max-w-md">
               A peer-to-peer rental agreement management platform powered by Solidity smart contracts on the Ethereum blockchain. Features verifiable lease hashes, smart contract deposit escrow, and transparent payment settlement.

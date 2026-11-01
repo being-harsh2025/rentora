@@ -37,13 +37,19 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand */}
         <div className="flex items-center gap-8">
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="bg-white px-2 py-1 rounded-xl shadow-md border border-slate-700/40 group-hover:shadow-brand-500/20 group-hover:scale-105 transition-all">
-              <img
-                src="/logo.png"
-                alt="Rentora - Smart Renting. Secure Agreements."
-                className="h-8 sm:h-9 w-auto object-contain"
-              />
+          <Link to="/" className="flex items-center gap-2.5 group">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-400 p-0.5 flex items-center justify-center shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
+              <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
+                <ShieldCheck className="w-5 h-5 text-brand-500" />
+              </div>
+            </div>
+            <div>
+              <span className="font-extrabold text-lg tracking-tight text-white flex items-center gap-0.5">
+                Rent<span className="text-brand-500">ora</span>
+              </span>
+              <span className="text-[10px] font-mono tracking-wider uppercase text-slate-400 block -mt-1">
+                Smart Contracts
+              </span>
             </div>
           </Link>
 

@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="frontend/public/logo.png" alt="Rentora Logo" width="360" />
-</p>
-
 # Rentora: Smart Contract-Based Rental Agreement Platform
 > **Smart Renting. Secure Agreements.**
 

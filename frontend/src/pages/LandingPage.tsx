@@ -35,19 +35,9 @@ export const LandingPage: React.FC = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-brand-500/10 blur-[120px] rounded-full pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="flex justify-center mb-6">
-            <div className="bg-white p-2.5 sm:p-3 rounded-2xl shadow-2xl border border-slate-700/60 inline-flex items-center hover:scale-105 transition-transform">
-              <img
-                src="/logo.png"
-                alt="Rentora - Smart Renting. Secure Agreements."
-                className="h-12 sm:h-16 w-auto object-contain"
-              />
-            </div>
-          </div>
-
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-brand-400 text-xs font-semibold uppercase tracking-wider mb-6 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-brand-400 text-xs font-semibold uppercase tracking-wider mb-8 shadow-sm">
             <Sparkles className="w-3.5 h-3.5" />
-            Smart Renting. Secure Agreements.
+            Rentora • Smart Renting. Secure Agreements.
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-[1.1]">
