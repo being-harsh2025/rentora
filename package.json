@@ -1,0 +1,32 @@
+{
+  "name": "smart-contract-rental-agreement",
+  "version": "1.0.0",
+  "description": "Smart Contract-Based Rental Agreement Management Platform on Ethereum",
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev": "npm run start:full",
+    "start:full": "node scripts/start-all.js",
+    "compile": "cd blockchain && npx hardhat compile",
+    "test:contracts": "cd blockchain && npx hardhat test",
+    "test:backend": "cd backend && npm test",
+    "test": "npm run test:contracts && npm run test:backend",
+    "deploy:local": "cd blockchain && npx hardhat run scripts/deploy.js",
+    "deploy:sepolia": "cd blockchain && npx hardhat run scripts/deploy.js --network sepolia",
+    "build:frontend": "cd frontend && npm run build",
+    "build": "npm run compile && npm run build:frontend"
+  },
+  "keywords": [
+    "solidity",
+    "smart-contracts",
+    "ethereum",
+    "sepolia",
+    "rental-agreement",
+    "escrow",
+    "hardhat",
+    "react",
+    "web3"
+  ],
+  "author": "Antigravity Engineering",
+  "license": "MIT"
+}
