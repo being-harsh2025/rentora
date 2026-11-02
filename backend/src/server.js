@@ -17,6 +17,33 @@ app.use(cors({
 
 app.use(express.json());
 
+// Root Landing Endpoint (Shows API status for Vercel / health probes)
+app.get('/', (req, res) => {
+  res.json({
+    status: 'healthy',
+    service: 'Rentora Backend API',
+    version: '1.0.0',
+    description: 'Smart Contract-Based Rental Agreement Platform',
+    endpoints: {
+      health: '/api/health',
+      agreements: '/api/agreements',
+      transactions: '/api/transactions',
+      auth: '/api/auth'
+    },
+    timestamp: new Date().toISOString()
+  });
+});
+
+// API Base Endpoint
+app.get('/api', (req, res) => {
+  res.json({
+    status: 'healthy',
+    service: 'Rentora Backend API',
+    version: '1.0.0',
+    health: '/api/health'
+  });
+});
+
 // Health Check
 app.get('/api/health', (req, res) => {
   res.json({
@@ -35,7 +62,12 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Unexpected server error occurred' });
 });
 
-app.listen(PORT, () => {
-  console.log(`[Rentora Backend] Server running on http://localhost:${PORT}`);
-});
+// Only listen on port when not running as a Vercel serverless function
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`[Rentora Backend] Server running on http://localhost:${PORT}`);
+  });
+}
+
+export default app;
 
